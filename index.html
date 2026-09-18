@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Пулат Зафаров — разработка сайтов под ключ</title>
+<meta name="description" content="Разработка лендингов, сайтов и веб-приложений. Быстро, качественно, в срок.">
+<style>
+  :root{
+    --bg:#0b1020;
+    --card:rgba(255,255,255,.045);
+    --border:rgba(255,255,255,.09);
+    --text:#eef1fb;
+    --muted:#9aa7c7;
+    --accent:#6d5cff;
+    --accent2:#22d3ee;
+    --tg:#229ED9;
+    --vk:#0077FF;
+    --wa:#25D366;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Inter","Helvetica Neue",Arial,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;min-height:100vh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;padding:60px 20px;overflow:hidden;
+    background:
+      radial-gradient(1100px 550px at 18% -5%, rgba(109,92,255,.28), transparent 60%),
+      radial-gradient(900px 500px at 88% 12%, rgba(34,211,238,.16), transparent 55%),
+      linear-gradient(180deg,#0b1020 0%,#101635 100%);
+  }
+  .hero::before,.hero::after{
+    content:"";position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;pointer-events:none;
+  }
+  .hero::before{width:420px;height:420px;left:-120px;bottom:-140px;background:rgba(109,92,255,.35)}
+  .hero::after{width:360px;height:360px;right:-110px;top:-100px;background:rgba(34,211,238,.22)}
+
+  .badge{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:8px 18px;border-radius:999px;font-size:.88rem;font-weight:500;color:#cfe9ff;
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+    backdrop-filter:blur(6px);position:relative;z-index:1;
+  }
+  .badge .dot{width:9px;height:9px;border-radius:50%;background:#34d399;box-shadow:0 0 0 4px rgba(52,211,153,.18);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(52,211,153,.18)}50%{box-shadow:0 0 0 8px rgba(52,211,153,.05)}}
+
+  .hero h1{
+    margin-top:26px;font-size:clamp(2.5rem,6.5vw,4.3rem);font-weight:800;letter-spacing:-.02em;
+    line-height:1.12;position:relative;z-index:1;
+  }
+  .gradient-text{
+    background:linear-gradient(92deg,#9f8fff 0%,var(--accent2) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .subtitle{
+    margin:20px auto 0;max-width:660px;color:var(--muted);
+    font-size:clamp(1.02rem,2.3vw,1.22rem);position:relative;z-index:1;
+  }
+  .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px;position:relative;z-index:1}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:14px;
+    font-weight:600;font-size:1rem;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s;
+  }
+  .btn-primary{
+    background:linear-gradient(92deg,var(--accent),#8f7bff);color:#fff;
+    box-shadow:0 12px 32px rgba(109,92,255,.38);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(109,92,255,.5)}
+  .btn-ghost{border:1px solid rgba(255,255,255,.2);color:var(--text);background:rgba(255,255,255,.03)}
+  .btn-ghost:hover{background:rgba(255,255,255,.08);transform:translateY(-2px)}
+
+  .hero-tags{display:flex;gap:26px;flex-wrap:wrap;justify-content:center;margin-top:48px;position:relative;z-index:1;color:var(--muted);font-size:.94rem}
+  .hero-tags span{display:inline-flex;align-items:center;gap:8px}
+  .hero-tags b{color:var(--text)}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:84px 20px}
+  .container{max-width:1060px;margin:0 auto}
+  .sec-title{font-size:clamp(1.6rem,3.4vw,2.2rem);font-weight:750;text-align:center;letter-spacing:-.01em}
+  .sec-sub{text-align:center;color:var(--muted);margin-top:12px}
+
+  .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:44px}
+  .card{
+    background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px 24px;
+    transition:transform .25s,border-color .25s;
+  }
+  .card:hover{transform:translateY(-4px);border-color:rgba(109,92,255,.45)}
+  .card .ico{font-size:1.9rem}
+  .card h3{margin-top:14px;font-size:1.08rem}
+  .card p{color:var(--muted);font-size:.93rem;margin-top:8px}
+
+  /* ---------- CONTACTS ---------- */
+  .contacts{
+    background:
+      radial-gradient(900px 420px at 50% 0%, rgba(109,92,255,.14), transparent 60%),
+      #0d1329;
+  }
+  .socials{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+  .social{
+    display:flex;flex-direction:column;align-items:center;gap:12px;text-decoration:none;color:var(--muted);
+    font-size:.9rem;font-weight:600;
+  }
+  .social .circle{
+    width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    transition:transform .22s,box-shadow .22s;
+  }
+  .social:hover .circle{transform:translateY(-5px) scale(1.05)}
+  .social.tg .circle{background:var(--tg);box-shadow:0 12px 30px rgba(34,158,217,.35)}
+  .social.vk .circle{background:var(--vk);box-shadow:0 12px 30px rgba(0,119,255,.35)}
+  .social.wa .circle{background:var(--wa);box-shadow:0 12px 30px rgba(37,211,102,.35)}
+  .social svg{width:34px;height:34px;fill:#fff}
+  .contact-note{margin-top:34px;text-align:center;color:var(--muted);font-size:.92rem}
+
+  footer{padding:30px 20px;text-align:center;color:#5e6b8f;font-size:.86rem;border-top:1px solid rgba(255,255,255,.06)}
+
+  /* ---------- FLOATING BUTTON ---------- */
+  .fab{
+    position:fixed;right:20px;bottom:20px;z-index:50;display:flex;align-items:center;gap:10px;
+    padding:13px 22px;border-radius:999px;background:var(--tg);color:#fff;text-decoration:none;
+    font-weight:650;font-size:.95rem;box-shadow:0 12px 30px rgba(34,158,217,.45);
+    transition:transform .2s;
+  }
+  .fab:hover{transform:translateY(-3px)}
+  .fab svg{width:22px;height:22px;fill:#fff}
+
+  /* ---------- OVERLAY (через 5 секунд) ---------- */
+  .overlay{
+    position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:22px;
+    background:rgba(4,7,18,.82);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
+    opacity:0;pointer-events:none;transition:opacity .4s ease;
+  }
+  .overlay.visible{opacity:1;pointer-events:auto}
+  .overlay-card{
+    position:relative;max-width:600px;width:100%;text-align:center;
+    background:linear-gradient(180deg,#151d3f 0%,#111734 100%);
+    border:1px solid rgba(255,255,255,.13);border-radius:24px;padding:44px 36px 38px;
+    box-shadow:0 30px 90px rgba(0,0,0,.55);
+    transform:translateY(16px) scale(.97);transition:transform .4s ease;
+    max-height:92vh;overflow-y:auto;
+  }
+  .overlay.visible .overlay-card{transform:none}
+  .overlay-close{
+    position:absolute;top:14px;right:16px;width:38px;height:38px;border-radius:50%;
+    border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);
+    color:var(--muted);font-size:1.25rem;line-height:1;cursor:pointer;transition:background .2s,color .2s;
+  }
+  .overlay-close:hover{background:rgba(255,255,255,.12);color:#fff}
+  .overlay-emoji{font-size:2.4rem}
+  .overlay-card h2{margin-top:14px;font-size:clamp(1.25rem,3vw,1.55rem);font-weight:750}
+  .overlay-card .msg{
+    margin-top:16px;color:#cdd6ef;font-size:1.02rem;text-align:left;
+    background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);
+    border-radius:14px;padding:18px 20px;
+  }
+  .overlay-socials{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+  .overlay-socials .social .circle{width:62px;height:62px}
+  .overlay-socials .social svg{width:29px;height:29px}
+  .overlay-hint{margin-top:24px;color:var(--muted);font-size:.9rem}
+
+  @media (max-width:560px){
+    .overlay-card{padding:36px 22px 30px}
+    .socials{gap:18px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="hero">
+  <div class="badge"><span class="dot"></span> Открыт для новых проектов</div>
+  <h1>Пулат Зафаров<br><span class="gradient-text">сайты, которые работают</span></h1>
+  <p class="subtitle">Разработка лендингов, сайтов и веб-приложений под ключ — от идеи и дизайна до запуска. Быстро, чисто и всегда в срок.</p>
+  <div class="cta">
+    <a href="#contacts" class="btn btn-primary">✉️&nbsp; Написать мне</a>
+    <a href="#services" class="btn btn-ghost">Что я делаю</a>
+  </div>
+  <div class="hero-tags">
+    <span>⚡ <b>Быстро</b> — первые результаты уже на старте</span>
+    <span>🧹 <b>Чистый код</b> — легко поддерживать</span>
+    <span>💬 <b>На связи</b> — отвечаю в течение 15 минут</span>
+  </div>
+</header>
+
+<!-- ================= SERVICES ================= -->
+<section id="services">
+  <div class="container">
+    <h2 class="sec-title">Чем я могу быть полезен</h2>
+    <p class="sec-sub">Полный цикл работ — берём задачу и возвращаемся с готовым результатом</p>
+    <div class="features">
+      <div class="card">
+        <div class="ico">🚀</div>
+        <h3>Лендинги и сайты</h3>
+        <p>Продающие одностраничники и корпоративные сайты: современный дизайн, адаптив под все устройства, быстрая загрузка.</p>
+      </div>
+      <div class="card">
+        <div class="ico">⚙️</div>
+        <h3>Веб-приложения</h3>
+        <p>Интерактивные сервисы, личные кабинеты, интеграции с API и платёжными системами — под вашу задачу.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🛠</div>
+        <h3>Доработки и поддержка</h3>
+        <p>Правки на существующих проектах, ускорение загрузки, исправление ошибок и развитие функционала.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACTS ================= -->
+<section class="contacts" id="contacts">
+  <div class="container">
+    <h2 class="sec-title">Напишите мне</h2>
+    <p class="sec-sub">Выберите удобный мессенджер — обсуждаем задачу и сразу приступаем к работе</p>
+    <div class="socials">
+      <a class="social tg" href="https://t.me/zafarovpolat" target="_blank" rel="noopener">
+        <span class="circle">
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </span>
+        Telegram
+      </a>
+      <a class="social vk" href="https://vk.com/zafarovpolat" target="_blank" rel="noopener">
+        <span class="circle">
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m9.489.004.729-.003h3.564l.73.003.914.01.433.007.418.011.403.014.388.016.374.021.36.025.345.03.333.033c1.74.196 2.933.616 3.833 1.516.9.9 1.32 2.092 1.516 3.833l.034.333.029.346.025.36.02.373.025.588.012.41.013.644.009.915.004.98-.001 3.313-.003.73-.01.914-.007.433-.011.418-.014.403-.016.388-.021.374-.025.36-.03.345-.033.333c-.196 1.74-.616 2.933-1.516 3.833-.9.9-2.092 1.32-3.833 1.516l-.333.034-.346.029-.36.025-.373.02-.588.025-.41.012-.644.013-.915.009-.98.004-3.313-.001-.73-.003-.914-.01-.433-.007-.418-.011-.403-.014-.388-.016-.374-.021-.36-.025-.345-.03-.333-.033c-1.74-.196-2.933-.616-3.833-1.516-.9-.9-1.32-2.092-1.516-3.833l-.034-.333-.029-.346-.025-.36-.02-.373-.025-.588-.012-.41-.013-.644-.009-.915-.004-.98.001-3.313.003-.73.01-.914.007-.433.011-.418.014-.403.016-.388.021-.374.025-.36.03-.345.033-.333c.196-1.74.616-2.933 1.516-3.833.9-.9 2.092-1.32 3.833-1.516l.333-.034.346-.029.36-.025.373-.02.588-.025.41-.012.644-.013.915-.009ZM6.79 7.3H4.05c.13 6.24 3.25 9.99 8.72 9.99h.31v-3.57c2.01.2 3.53 1.67 4.14 3.57h2.84c-.78-2.84-2.83-4.41-4.11-5.01 1.28-.74 3.08-2.54 3.51-4.98h-2.58c-.56 1.98-2.22 3.78-3.8 3.95V7.3H10.5v6.92c-1.6-.4-3.62-2.34-3.71-6.92Z"/></svg>
+        </span>
+        ВКонтакте
+      </a>
+      <a class="social wa" href="https://wa.me/zafarovpolat" target="_blank" rel="noopener">
+        <span class="circle">
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </span>
+        WhatsApp
+      </a>
+    </div>
+    <p class="contact-note">Обычно отвечаю в течение 15 минут · Пишите в любое время</p>
+  </div>
+</section>
+
+<footer>© 2026 Пулат Зафаров · Все права защищены</footer>
+
+<!-- ================= FLOATING BUTTON ================= -->
+<a class="fab" href="https://t.me/zafarovpolat" target="_blank" rel="noopener" aria-label="Написать в Telegram">
+  <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+  Написать в Telegram
+</a>
+
+<!-- ================= OVERLAY: появляется через 5 секунд ================= -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="overlay-title">
+  <div class="overlay-card">
+    <button class="overlay-close" id="overlay-close" aria-label="Закрыть">✕</button>
+    <div class="overlay-emoji">📩</div>
+    <h2 id="overlay-title">Важное сообщение по проекту</h2>
+    <p class="msg">
+      Удалите, пожалуйста, то, что вы написали про кошелёк в Кворке) — это обход их комиссии,
+      и нас могут забанить. У вас есть Telegram или WhatsApp? Мы можем там продолжить работу 👇
+    </p>
+    <div class="overlay-socials">
+      <a class="social tg" href="https://t.me/zafarovpolat" target="_blank" rel="noopener">
+        <span class="circle">
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </span>
+        Telegram
+      </a>
+      <a class="social vk" href="https://vk.com/zafarovpolat" target="_blank" rel="noopener">
+        <span class="circle">
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m9.489.004.729-.003h3.564l.73.003.914.01.433.007.418.011.403.014.388.016.374.021.36.025.345.03.333.033c1.74.196 2.933.616 3.833 1.516.9.9 1.32 2.092 1.516 3.833l.034.333.029.346.025.36.02.373.025.588.012.41.013.644.009.915.004.98-.001 3.313-.003.73-.01.914-.007.433-.011.418-.014.403-.016.388-.021.374-.025.36-.03.345-.033.333c-.196 1.74-.616 2.933-1.516 3.833-.9.9-2.092 1.32-3.833 1.516l-.333.034-.346.029-.36.025-.373.02-.588.025-.41.012-.644.013-.915.009-.98.004-3.313-.001-.73-.003-.914-.01-.433-.007-.418-.011-.403-.014-.388-.016-.374-.021-.36-.025-.345-.03-.333-.033c-1.74-.196-2.933-.616-3.833-1.516-.9-.9-1.32-2.092-1.516-3.833l-.034-.333-.029-.346-.025-.36-.02-.373-.025-.588-.012-.41-.013-.644-.009-.915-.004-.98.001-3.313.003-.73.01-.914.007-.433.011-.418.014-.403.016-.388.021-.374.025-.36.03-.345.033-.333c.196-1.74.616-2.933 1.516-3.833.9-.9 2.092-1.32 3.833-1.516l.333-.034.346-.029.36-.025.373-.02.588-.025.41-.012.644-.013.915-.009ZM6.79 7.3H4.05c.13 6.24 3.25 9.99 8.72 9.99h.31v-3.57c2.01.2 3.53 1.67 4.14 3.57h2.84c-.78-2.84-2.83-4.41-4.11-5.01 1.28-.74 3.08-2.54 3.51-4.98h-2.58c-.56 1.98-2.22 3.78-3.8 3.95V7.3H10.5v6.92c-1.6-.4-3.62-2.34-3.71-6.92Z"/></svg>
+        </span>
+        ВКонтакте
+      </a>
+      <a class="social wa" href="https://wa.me/zafarovpolat" target="_blank" rel="noopener">
+        <span class="circle">
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </span>
+        WhatsApp
+      </a>
+    </div>
+    <p class="overlay-hint">Нажмите на мессенджер, чтобы написать мне — там продолжим обсуждение</p>
+  </div>
+</div>
+
+<script>
+  const overlay  = document.getElementById('overlay');
+  const closeBtn = document.getElementById('overlay-close');
+
+  // Показать экран через 5 секунд после посещения
+  setTimeout(() => {
+    overlay.classList.add('visible');
+    document.body.style.overflow = 'hidden';
+  }, 5000);
+
+  function hideOverlay(){
+    overlay.classList.remove('visible');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', hideOverlay);
+  overlay.addEventListener('click', e => { if (e.target === overlay) hideOverlay(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') hideOverlay(); });
+</script>
+
+</body>
+</html>
