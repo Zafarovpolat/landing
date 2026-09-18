@@ -450,14 +450,14 @@
     });
   });
 
-  // Модалка через 5 секунд после посещения
+  // Модалка через 20 секунд после посещения
   const overlay = document.getElementById('overlay');
   const closeBtn = document.getElementById('modal-close');
 
   setTimeout(() => {
     overlay.classList.add('visible');
     document.body.style.overflow = 'hidden';
-  }, 5000);
+  }, 20000);
 
   function hideModal(){
     overlay.classList.remove('visible');
